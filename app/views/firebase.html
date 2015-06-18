@@ -1,0 +1,29 @@
+
+<div ng-show="loggedin">
+    <span>login as {{username}}.</span>
+    <button ng-click="logoff()" ng-show="loggedin" >logoff</button>
+</div>
+
+<ul>
+		<li ng-repeat="message in messages">{{message.author}}: {{message.content}}</li>
+</ul>
+<input type="text" ng-model="message" placeholder="Message" />
+<button ng-click="send()" ng-show="loggedin" >send</button>
+<button ng-click="login()" ng-show="!loggedin" >login</button>
+
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Choose social login</h3>
+    </div>
+    <div class="modal-body">
+        <ul>
+            <li ng-repeat="item in socials">
+                <a ng-click="select(item.key)" ng-href="#/">{{ item.label }}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
